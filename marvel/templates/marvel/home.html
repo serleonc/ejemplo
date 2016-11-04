@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+	<section>
+
+		{%if personaje%}
+		<img style="max-width:200px" src="{{link}}">
+		<h2>La descripcion de {{heroe}}: </h2>
+		<h3>{{personaje}}</h3>
+
+		{%else%}
+
+		<form action="." method="post">
+			<label>
+				Escribe el nombre de tu super heroe favorito:
+				<input name="heroe" type="text" placeholder="spiderman u otro">
+				<input type="submit" value="Pedir">
+			</label>
+			{%csrf_token%}
+		</form>
+
+		{%endif%}
+
+	</section>
+
+{%endblock content%}
